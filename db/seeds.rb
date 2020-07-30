@@ -7,10 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Park.destroy_all
 
-Park.create(
+house = Park.create(
     name: "My House",
     latitude: 39.74,
     longitude: -105.06
+)
+
+SportingEvent.create(
+    sport: "Soccer",
+    players: 20,
+    park: house
 )
 
 Park.create(
