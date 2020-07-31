@@ -26,17 +26,18 @@ ActiveRecord::Schema.define(version: 2020_07_30_171508) do
     t.integer "park_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.datetime "event_date"
+    t.date "event_date"
+    t.time "event_time"
     t.index ["park_id"], name: "index_sporting_events_on_park_id"
   end
 
   create_table "user_events", force: :cascade do |t|
-    t.integer "sporting_events_id"
-    t.integer "users_id"
+    t.integer "sporting_event_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["sporting_events_id"], name: "index_user_events_on_sporting_events_id"
-    t.index ["users_id"], name: "index_user_events_on_users_id"
+    t.index ["sporting_event_id"], name: "index_user_events_on_sporting_event_id"
+    t.index ["user_id"], name: "index_user_events_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

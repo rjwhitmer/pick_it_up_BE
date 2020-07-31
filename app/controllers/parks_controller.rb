@@ -1,4 +1,6 @@
 class ParksController < ApplicationController
+    skip_before_action :authenticate
+
     def index
         @park = Park.all
         render json: @park, include: [:sporting_events]

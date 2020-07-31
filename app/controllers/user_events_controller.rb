@@ -1,4 +1,6 @@
 class UserEventsController < ApplicationController
+    skip_before_action :authenticate
+
     def index
         @user_event = UserEvent.all
         render json: @user_event
@@ -7,7 +9,7 @@ class UserEventsController < ApplicationController
     def create
         @user_event = UserEvent.new({
             user_id: params[:user_id],
-            event_id: params[event_id]
+            sporting_event_id: params[:event_id]
         })
 
         if @user_event.save
