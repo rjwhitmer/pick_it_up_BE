@@ -19,4 +19,10 @@ class UserEventsController < ApplicationController
         end
     end
 
+    def destroy
+        @event = UserEvent.find(params[:id])
+        @event.destroy
+        render json: { message: "buh-bye!"}, status: :no_content
+    end
+
 end
